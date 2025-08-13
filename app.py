@@ -8,11 +8,17 @@ import datetime
 # ---------- Conexão ----------
 def get_connection():
     return pyodbc.connect(
+        # f"DRIVER={{ODBC Driver 18 for SQL Server}};"
+        # f"SERVER={config.SERVER};"
+        # f"DATABASE={config.DATABASE};"
+        # f"UID={config.USERNAME};"
+        # f"PWD={config.PASSWORD};"
+        # "Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
         f"DRIVER={{ODBC Driver 18 for SQL Server}};"
-        f"SERVER={config.SERVER};"
-        f"DATABASE={config.DATABASE};"
-        f"UID={config.USERNAME};"
-        f"PWD={config.PASSWORD};"
+        f"SERVER={os.getenv('DB_SERVER')};"
+        f"DATABASE={os.getenv('DB_NAME')};"
+        f"UID={os.getenv('DB_USER')};"
+        f"PWD={os.getenv('DB_PASSWORD')};"
         "Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
     )
 
