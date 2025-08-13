@@ -7,7 +7,7 @@ import config
 # ---------- Conexão ----------
 def get_connection():
     return pyodbc.connect(
-        f"DRIVER={{ODBC Driver 18 for SQL Server}};"
+        f"DRIVER={{ODBC Driver 17 for SQL Server}};"
         f"SERVER={config.SERVER};"
         f"DATABASE={config.DATABASE};"
         f"UID={config.USERNAME};"
